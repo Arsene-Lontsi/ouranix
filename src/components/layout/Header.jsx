@@ -23,7 +23,7 @@ export default function Header() {
   return (
     <>
       {/* Available bar */}
-      <div className="fixed top-0 left-0 right-0 z-600 flex justify-center pt-2.5 pointer-events-none">
+      <div className="fixed top-0 left-0 right-0 z-600 flex justify-center pt-1.5 pointer-events-none">
         <span className="inline-flex items-center gap-2 bg-dark-2 text-white text-xs font-medium px-4 py-2 rounded-full shadow-lg pointer-events-auto">
           <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
           Available for New Projects
@@ -32,7 +32,7 @@ export default function Header() {
 
       {/* Main nav */}
       <motion.header
-        className={`fixed top-0 left-0 right-0 z-500 transition-all duration-300 ${
+        className={`fixed top-0 left-0 right-0 z-500 pb-4 transition-all duration-300 ${
           scrolled ? "bg-page/90 backdrop-blur-md shadow-sm" : "bg-transparent"
         }`}
         initial={{ y: -80, opacity: 0 }}

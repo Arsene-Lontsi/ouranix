@@ -1,14 +1,16 @@
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 
+
 /* Inline circle placeholder images using colored gradients */
-function HeroCircle({ gradient, size = "md" }) {
+function HeroCircle({ image, gradient, size = "sm" }) {
   const dim = size === "sm" ? "w-[52px] h-[52px]" : "w-[72px] h-[72px] md:w-[88px] md:h-[88px] lg:w-[100px] lg:h-[100px]";
   return (
     <span
-      className={`inline-block ${dim} rounded-full overflow-hidden align-middle mx-1 relative shrink-0`}
+      className={`hidden sm:inline-block ${dim} rounded-full overflow-hidden align-middle mx-1 relative shrink-0 animate-diagonal`}
       style={{ verticalAlign: "middle", top: "-2px" }}
     >
+      <img src={image} alt="" className="absolute inset-0 w-full h-full" />
       <span className={`block w-full h-full bg-linear-to-br ${gradient}`} />
     </span>
   );
@@ -18,6 +20,7 @@ export default function Hero() {
   return (
     <section className="relative bg-page rounded-b-4xl overflow-hidden pt-36 pb-16 lg:pt-44 lg:pb-20">
       <div className="container-site relative z-10">
+
         {/* Trusted by row */}
         <motion.div
           className="flex justify-center items-center gap-2 mb-8"
@@ -45,7 +48,7 @@ export default function Hero() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.2 }}
         >
-          <h1 className="text-display text-[2.6rem] sm:text-6xl lg:text-7xl xl:text-[5rem] leading-[1.0] tracking-[-0.03em]">
+          <h1 className="text-display text-4xl sm:text-5xl md:text-7xl leading-[1.0] tracking-[-0.03em]">
             {/* Line 1 */}
             <span className="flex flex-wrap justify-center items-center gap-x-3 gap-y-1">
               <span className="text-[#111]">Effortless</span>
@@ -61,8 +64,9 @@ export default function Hero() {
             {/* Line 3 */}
             <span className="flex flex-wrap justify-center items-center gap-x-3 gap-y-1 mt-1">
               <span className="text-[#888]">based in</span>
+              <span className="text-[#111]">London,</span>
               <HeroCircle gradient="from-teal-400 via-cyan-500 to-blue-700" />
-              <span className="text-[#111]">London, UK</span>
+              <span className="text-[#111]">UK</span>
             </span>
           </h1>
         </motion.div>
