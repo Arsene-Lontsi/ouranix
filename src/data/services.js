@@ -1,0 +1,62 @@
+export const services = [
+  {
+    id: 1,
+    slug: "web-design",
+    title: "Web Design",
+    tagline: "Conversion-focused websites that look as good as they perform.",
+    description:
+      "We design fast, responsive, and beautifully crafted websites for startups and growing brands. Every layout decision is intentional — guiding visitors toward the action that matters most.",
+    tags: ["UX/UI Design", "Responsive Layouts", "Web Development"],
+    bullets: [
+      "Landing page & multi-page design",
+      "High-fidelity Figma prototypes",
+      "Framer or Webflow development",
+      "CRO-focused layout strategy",
+      "Mobile-first responsive design",
+      "Performance & accessibility",
+    ],
+    price: "$2,500",
+    timeline: "4–6 weeks",
+    gradient: "from-indigo-600 via-indigo-800 to-zinc-900",
+  },
+  {
+    id: 2,
+    slug: "brand-design",
+    title: "Brand Design",
+    tagline: "Visual identities built to stand out and scale.",
+    description:
+      "From early-stage startups defining their first impression to established companies ready for a bold refresh — we create brand systems that carry meaning at every touchpoint.",
+    tags: ["Visual Identity", "Style Guides", "Brand Strategy"],
+    bullets: [
+      "Brand strategy & positioning",
+      "Visual identity system",
+      "Style guide & brand book",
+      "Color, type & illustration",
+      "Brand collateral design",
+      "Multi-channel brand rollout",
+    ],
+    price: "$1,800",
+    timeline: "3–5 weeks",
+    gradient: "from-amber-600 via-stone-700 to-zinc-900",
+  },
+  {
+    id: 3,
+    slug: "logo-design",
+    title: "Logo Design",
+    tagline: "Marks that mean something — and last for decades.",
+    description:
+      "A great logo does more than identify — it communicates values, builds recognition, and anchors an entire visual language. We explore concepts deeply before committing to the definitive mark.",
+    tags: ["Wordmark", "Icon Design", "Brand Guidelines"],
+    bullets: [
+      "Wordmark & lettermark design",
+      "Icon & symbol exploration",
+      "Logo variations & lockups",
+      "Usage guidelines",
+      "Full file package (SVG, PNG, PDF)",
+      "Monochrome & colour versions",
+    ],
+    price: "$800",
+    timeline: "1–2 weeks",
+    gradient: "from-emerald-600 via-zinc-700 to-stone-900",
+  },
+];

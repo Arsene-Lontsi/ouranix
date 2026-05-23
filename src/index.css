@@ -1,0 +1,275 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Plus Jakarta Sans", sans-serif;
+
+  --color-page:    #e8e8e8;
+  --color-page-2:  #d8d8d8;
+  --color-dark:    #111111;
+  --color-dark-2:  #1a1a1a;
+  --color-dark-3:  #222222;
+  --color-white:   #ffffff;
+
+  --color-accent:       #f04e23;
+  --color-accent-hover: #d93e16;
+
+  --color-text:         #111111;
+  --color-text-muted:   #777777;
+  --color-text-faint:   #aaaaaa;
+
+  --color-border:       rgba(0, 0, 0, 0.10);
+  --color-border-light: rgba(0, 0, 0, 0.06);
+
+  /* Legacy aliases used in existing components */
+  --color-cream: #111111;
+}
+
+/* ── Base resets ── */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  background-color: #e8e8e8;
+  color: #111111;
+  font-family: "Plus Jakarta Sans", sans-serif;
+  overflow-x: hidden;
+}
+
+/* ── Noise texture overlay ── */
+.noise-overlay {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 9999;
+  opacity: 0.025;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-repeat: repeat;
+  background-size: 300px 300px;
+}
+
+/* ── Marquee animation ── */
+@keyframes marquee-left {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+@keyframes marquee-right {
+  from { transform: translateX(-50%); }
+  to   { transform: translateX(0); }
+}
+.marquee-track {
+  display: flex;
+  width: max-content;
+  animation: marquee-left 30s linear infinite;
+}
+.marquee-track-reverse {
+  display: flex;
+  width: max-content;
+  animation: marquee-right 30s linear infinite;
+}
+.marquee-track:hover,
+.marquee-track-reverse:hover {
+  animation-play-state: paused;
+}
+
+/* ── Rotating badge ── */
+@keyframes spin-slow {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+.spin-slow {
+  animation: spin-slow 14s linear infinite;
+}
+
+/* ── Scrollbar ── */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: #e8e8e8; }
+::-webkit-scrollbar-thumb { background: #c0c0c0; border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: #aaaaaa; }
+
+/* ── Focus ring ── */
+:focus-visible {
+  outline: 2px solid #f04e23;
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+/* ── Selection ── */
+::selection {
+  background: #f04e23;
+  color: #fff;
+}
+
+/* ── Typography utilities ── */
+.text-display {
+  font-family: "Plus Jakarta Sans", sans-serif;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  line-height: 1.0;
+}
+
+/* ── Watermark / ghost text ── */
+.watermark-text {
+  font-family: "Plus Jakarta Sans", sans-serif;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  line-height: 1.0;
+  color: transparent;
+  -webkit-text-stroke: 1px rgba(0,0,0,0.10);
+  user-select: none;
+  pointer-events: none;
+}
+
+/* ── Section padding ── */
+.section-pad {
+  padding-top: 6rem;
+  padding-bottom: 6rem;
+}
+@media (min-width: 1024px) {
+  .section-pad {
+    padding-top: 9rem;
+    padding-bottom: 9rem;
+  }
+}
+
+/* ── Container ── */
+.container-site {
+  max-width: 1280px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+}
+@media (min-width: 768px) {
+  .container-site {
+    padding-left: 3rem;
+    padding-right: 3rem;
+  }
+}
+@media (min-width: 1024px) {
+  .container-site {
+    padding-left: 4rem;
+    padding-right: 4rem;
+  }
+}
+
+/* ── Diagonal marquee band ── */
+.diagonal-band {
+  position: relative;
+  overflow: hidden;
+  padding: 0.9rem 0;
+}
+
+/* ── Blog / project card image hover ── */
+.card-img {
+  transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+.card-wrap:hover .card-img {
+  transform: scale(1.04);
+}
+
+/* ── Underline link animation ── */
+.link-underline {
+  position: relative;
+}
+.link-underline::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background: currentColor;
+  transition: width 0.3s ease;
+}
+.link-underline:hover::after {
+  width: 100%;
+}
+
+/* ── Accordion ── */
+.accordion-content {
+  overflow: hidden;
+}
+
+/* ── Mobile menu overlay ── */
+.mobile-menu-overlay {
+  position: fixed;
+  inset: 0;
+  background: #111111;
+  z-index: 9000;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ── Inline hero image circles ── */
+.hero-img-circle {
+  display: inline-block;
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  overflow: hidden;
+  vertical-align: middle;
+  margin: 0 4px;
+  position: relative;
+  top: -4px;
+  flex-shrink: 0;
+}
+@media (min-width: 768px) {
+  .hero-img-circle {
+    width: 88px;
+    height: 88px;
+  }
+}
+@media (min-width: 1024px) {
+  .hero-img-circle {
+    width: 100px;
+    height: 100px;
+  }
+}
+
+/* ── Dark pill CTA button ── */
+.btn-dark {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: #1a1a1a;
+  color: #ffffff;
+  font-weight: 600;
+  font-size: 0.9375rem;
+  padding: 0.875rem 1.75rem;
+  border-radius: 9999px;
+  transition: background 0.2s;
+}
+.btn-dark:hover {
+  background: #2a2a2a;
+}
+
+/* ── Section label (orange cursive) ── */
+.section-label {
+  font-family: "Plus Jakarta Sans", sans-serif;
+  font-style: italic;
+  font-weight: 500;
+  font-size: 0.9375rem;
+  color: #f04e23;
+  letter-spacing: 0;
+}
+
+/* ── Orange italic label in parens ── */
+.paren-label {
+  font-style: italic;
+  color: #f04e23;
+  font-size: 0.9375rem;
+  font-weight: 500;
+}
+
+/* ── Hero section card (white rounded) ── */
+.hero-card {
+  background: #ebebeb;
+  border-radius: 1.5rem;
+}
