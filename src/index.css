@@ -25,6 +25,7 @@
   --color-cream: #111111;
 
   --animate-diagonal: diagonalMove 6s ease-in-out infinite;
+  --animate-logo-marquee: logoMarquee 22s linear infinite;
 }
 
 @keyframes diagonalMove {
@@ -38,6 +39,16 @@
 
   100% {
     transform: translate(0, 0);
+  }
+}
+
+@keyframes logoMarquee {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(-50%);
   }
 }
 
