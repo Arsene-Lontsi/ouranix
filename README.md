@@ -1,4 +1,4 @@
-# Agero — Design Studio Website
+# Ouranix — Design Studio Website
 
 A premium creative agency website built with React + Vite + Tailwind CSS, inspired by the Agero Framer website.
 
