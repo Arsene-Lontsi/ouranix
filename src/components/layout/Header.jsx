@@ -44,7 +44,7 @@ export default function Header() {
             {/* Logo */}
             <Link to="/" className="shrink-0" aria-label="Agero Home">
               <span className="text-2xl font-extrabold text-[#f04e23] tracking-tight leading-none">
-                Agero.
+                Ouranix.
               </span>
             </Link>
 

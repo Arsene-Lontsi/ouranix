@@ -25,7 +25,8 @@
   --color-cream: #111111;
 
   --animate-diagonal: diagonalMove 6s ease-in-out infinite;
-  --animate-logo-marquee: logoMarquee 22s linear infinite;
+  --animate-marquee: marquee 60s linear infinite;
+  --animate-logo-marquee: marquee 22s linear infinite;
 }
 
 @keyframes diagonalMove {
@@ -42,7 +43,7 @@
   }
 }
 
-@keyframes logoMarquee {
+@keyframes marquee {
   from {
     transform: translateX(0);
   }
@@ -292,7 +293,6 @@ body {
 .paren-label {
   font-style: italic;
   color: #f04e23;
-  font-size: 0.9375rem;
   font-weight: 500;
 }
 
