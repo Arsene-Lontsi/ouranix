@@ -1,47 +1,67 @@
-const items = [
+import Shuriken from "../../assets/icons/shuriken.png";
+
+const services = [
   "Website Design",
   "Brand Design",
   "Logo Design",
+];
+const experience = [
   "Senior Designer",
   "10 Years of Experience",
+  "Over 100 Customers"
 ];
 
-function Band({ dark = false, reverse = false }) {
-  const repeated = [...items, ...items, ...items, ...items];
-  const trackClass = reverse ? "marquee-track-reverse" : "marquee-track";
-  const bg = dark ? "bg-dark" : "bg-accent";
+
+
+function RotatedBands() {
 
   return (
-    <div className={`overflow-hidden py-3.5 ${bg}`}>
-      <div className={trackClass}>
-        {repeated.map((item, i) => (
-          <span key={i} className="flex items-center gap-5 px-4 whitespace-nowrap text-[13px] font-semibold tracking-wide text-white">
-            {item}
-            <span className="opacity-40 text-lg leading-none">×</span>
-          </span>
-        ))}
+    <section className="relative flex h-[300px] items-center justify-center overflow-hidden bg-white">
+
+      {/* Dark band - anticlockwise */}
+      <div className="absolute w-[140%] -rotate-6 bg-[#111] py-4 shadow-xl">
+        <div className="flex w-max animate-marquee whitespace-nowrap">
+          {[...Array(8)].map((_, i) => (
+            <div  key={i} className="flex justify-center">
+              {experience.map((item, index) => (
+                <span
+                  key={index}
+                  className="flex items-center text-3xl font-bold tracking-widest text-white"
+                >
+                  {item}
+                  <img src={Shuriken} alt="Shuriken" className="mx-6 h-6 w-6" />
+                </span>
+              ))}
+            </div>
+          ))}
+        </div>
       </div>
-    </div>
+
+      {/* Orange band - clockwise */}
+      <div className="absolute w-[140%] rotate-6 bg-accent py-4 shadow-xl">
+        <div className="flex w-max animate-marquee whitespace-nowrap">
+          {[...Array(8)].map((_, i) => (
+            <div  key={i} className="flex justify-center">
+              {services.map((item, index) => (
+                <span
+                  key={index}
+                  className="flex items-center text-3xl font-bold tracking-widest text-white"
+                >
+                  {item}
+                  <img src={Shuriken} alt="Shuriken" className="mx-6 h-6 w-6" />
+                </span>
+              ))}
+            </div>
+          ))}
+        </div>
+      </div>
+
+    </section>
   );
 }
 
 export default function MarqueeSection() {
   return (
-    <section
-      className="relative overflow-hidden bg-page"
-      style={{ paddingTop: "40px", paddingBottom: "40px" }}
-    >
-      {/* Two bands crossing at ≈±7° */}
-      <div className="absolute inset-0 flex flex-col justify-center" style={{ gap: "20px" }}>
-        <div style={{ transform: "rotate(-7deg)", margin: "0 -15%", transformOrigin: "center" }}>
-          <Band dark={false} reverse={false} />
-        </div>
-        <div style={{ transform: "rotate(7deg)", margin: "0 -15%", transformOrigin: "center" }}>
-          <Band dark={true} reverse={true} />
-        </div>
-      </div>
-      {/* Vertical spacer so the section has height */}
-      <div aria-hidden style={{ height: "160px" }} />
-    </section>
+    <RotatedBands />
   );
 }

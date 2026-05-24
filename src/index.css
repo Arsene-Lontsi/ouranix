@@ -1,4 +1,5 @@
 @import "tailwindcss";
+@plugin "tailwindcss-motion";
 
 @theme {
   --font-sans: "Plus Jakarta Sans", sans-serif;
@@ -22,6 +23,34 @@
 
   /* Legacy aliases used in existing components */
   --color-cream: #111111;
+
+  --animate-diagonal: diagonalMove 6s ease-in-out infinite;
+  --animate-marquee: marquee 60s linear infinite;
+  --animate-logo-marquee: marquee 22s linear infinite;
+}
+
+@keyframes diagonalMove {
+  0% {
+    transform: translate(0, 0);
+  }
+
+  50% {
+    transform: translate(15px, 15px);
+  }
+
+  100% {
+    transform: translate(0, 0);
+  }
+}
+
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(-50%);
+  }
 }
 
 /* ── Base resets ── */
@@ -264,7 +293,6 @@ body {
 .paren-label {
   font-style: italic;
   color: #f04e23;
-  font-size: 0.9375rem;
   font-weight: 500;
 }
 

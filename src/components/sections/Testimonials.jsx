@@ -1,7 +1,26 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { stats, testimonials } from "../../data/testimonials";
-import Watermark from "../ui/Watermark";
+
+function FadedText({ text }) {
+  <div className="overflow-hidden">
+    <p className="
+              text-[12rem]
+              font-black
+              leading-none
+              bg-linear-to-b
+              from-[#b5b5b5]
+              via-[#cfcfcf]
+              to-[#f1f1f1]
+              bg-clip-text
+              text-transparent
+              select-none
+            "
+    >
+      {text}
+    </p>
+  </div>
+}
 
 export default function Testimonials() {
   const [active, setActive] = useState(0);
@@ -9,7 +28,29 @@ export default function Testimonials() {
 
   return (
     <section className="relative section-pad bg-page overflow-hidden">
-      <Watermark text="Testimonials" />
+
+      <div className="m-auto text-center">
+        {/* italic label */}
+        <p className="text-gray-600 italic text-md">(Why clients love Agero)</p>
+
+        <div className="overflow-hidden">
+          <p className="
+              text-[12rem]
+              font-black
+              leading-none
+              bg-linear-to-b
+              from-[#b5b5b5]
+              via-[#cfcfcf]
+              to-[#f1f1f1]
+              bg-clip-text
+              text-transparent
+              select-none
+            "
+          >
+            Testimonials
+          </p>
+        </div>
+      </div>
 
       <div className="container-site relative z-10 pt-20">
         {/* Label + heading */}
@@ -20,7 +61,6 @@ export default function Testimonials() {
           viewport={{ once: true }}
           transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
         >
-          <p className="paren-label mb-3">(What our clients say)</p>
           <h2 className="text-display text-4xl lg:text-5xl xl:text-6xl font-extrabold text-[#111]">
             Trusted by Founders
           </h2>
@@ -85,7 +125,7 @@ export default function Testimonials() {
                     aria-label="Previous testimonial"
                   >
                     <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
-                      <path d="M9 2L4 7l5 5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                      <path d="M9 2L4 7l5 5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
                     </svg>
                   </button>
                   <button
@@ -94,7 +134,7 @@ export default function Testimonials() {
                     aria-label="Next testimonial"
                   >
                     <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
-                      <path d="M5 2l5 5-5 5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                      <path d="M5 2l5 5-5 5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
                     </svg>
                   </button>
                 </div>
